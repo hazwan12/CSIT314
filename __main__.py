@@ -10,6 +10,10 @@ def index():
 def aboutus():
     return flask.render_template("content/about.html")
 
+@app.route("/newbug")
+def newbug():
+    return flask.render_template("content/newbug.html")
+
 @app.route("/logout")
 def logout():
     return flask.render_template("auth/login.html")
