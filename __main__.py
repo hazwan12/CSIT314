@@ -3,12 +3,17 @@ import flask
 app = flask.Flask(__name__)
 
 @app.route("/")
-def index():
-    return flask.render_template("content/view_bugs.html")
+@app.route("/home")
+def home():
+    return flask.render_template("content/home.html")
 
 @app.route("/aboutus")
 def aboutus():
     return flask.render_template("content/about.html")
+
+@app.route("/newbug")
+def newbug():
+    return flask.render_template("content/newbug.html")
 
 @app.route("/logout")
 def logout():

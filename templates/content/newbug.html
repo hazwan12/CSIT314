@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="card bg-light">
+        <article class="card-body mx-auto">
+        <form>
+            <legend class="border-bottom md-4">New bug report</legend>
+        <div class="form-row">
+            <div class="col-md-6" style="padding-right:20px;">
+                <div class="form-group">
+                <label for="summary">Summary</label>
+                <input type="text" class="form-control" id="summary">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="product">Product</label>
+                        <input type="text" class="form-control" id="product">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="platform">Platform</label>
+                        <input type="text" class="form-control" id="platform">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6" style="padding-right:20px;">
+                <label for="whatHappen">What happened?</label>
+                <textarea class="form-control" id="whatHappen" rows="5"></textarea>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6" style="padding-right:20px;">
+                <label for="howHappen">How did it happen?</label>
+                <textarea class="form-control" id="howHappen" rows="7"></textarea>
+            </div>
+            <div class="form-group col-md-6" style="padding-right:20px;">
+                <label for="shouldHappen">What should have happened?</label>
+                <textarea class="form-control" id="shouldHappen" rows="7"></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </article>
+    </div>   
+{% endblock content %}
