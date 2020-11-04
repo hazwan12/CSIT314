@@ -3,8 +3,9 @@ import flask
 app = flask.Flask(__name__)
 
 @app.route("/")
-def index():
-    return flask.render_template("content/view_bugs.html")
+@app.route("/home")
+def home():
+    return flask.render_template("content/home.html")
 
 @app.route("/aboutus")
 def aboutus():
