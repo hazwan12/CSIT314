@@ -1,5 +1,5 @@
 CREATE TABLE user (
-	email INTEGER PRIMARY KEY,
+	email TEXT PRIMARY KEY,
 	full_name TEXT NOT NULL,
 	phone_no TEXT NOT NULL,
 	password TEXT NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE user (
 );
 
 CREATE TABLE bug (
-    id INTEGER PRIMARY KEY AUTO INCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
 	reporter TEXT NOT NULL,
 	title TEXT NOT NULL,
 	description TEXT NOT NULL,
