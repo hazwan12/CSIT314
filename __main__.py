@@ -29,8 +29,13 @@ def search(value):
 
 @app.route("/do_login", methods=['POST'])
 def do_login():
-    #Validate Login
-    pass
+    user = bugzilla.models.User()
+    result = user.check_login(flask.request.get("inputEmail"), flask.request.get("inputPassword"))
+
+    if result:
+        return "Login Succeeded"
+    else:
+        return "Login Failed"
 
 if __name__ == '__main__':
     app.run(debug=True)

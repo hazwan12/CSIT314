@@ -2,10 +2,9 @@ import sqlite3
 import datetime
 
 class Model(object):
-
-    def __init__(self, table_name : str):
+    table_name = ""
+    def __init__(self):
         self.conn = sqlite3.connect("bugzilla.db")
-        self.table_name = table_name
 
     def gen_insert(self):
         return "INSERT INTO {} () VALUES ()".format(self.table_name)
@@ -28,9 +27,9 @@ class Model(object):
             return result
 
 class User(Model):
-    
-    def __init__(self, table_name : str):
-        super().__init__(table_name)
+    table_name = "user"
+    def __init__(self):
+        super().__init__()
 
     def gen_insert(self, email : str, full_name : str, phone_no : str, password : str, created_dt : str = str(datetime.datetime.now())):
         return """
@@ -38,10 +37,20 @@ class User(Model):
         VALUES ({}, {}, {}, {}, {})
         """.format(self.table_name, email, full_name, phone_no, password, created_dt)
 
+    def check_login(self, email : str, password : str):
+        cursor = self.conn.cursor()
+        cursor.execute("select count(*) from user where email = '{}' and password = '{}'".format(email, password))
+        result = cursor.fetchall()
+
+        if result[0][0] == 1:
+            return True
+        else:
+            return False
+
 class Bug(Model):
-    
-    def __init__(self, table_name : str):
-        super().__init__(table_name)
+    table_name = "bug"
+    def __init__(self):
+        super().__init__()
 
     def gen_insert(self, reporter : str, title : str, description : str, created_dt : str = str(datetime.datetime.now())):
         return """
