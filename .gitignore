@@ -3,3 +3,5 @@ log/
 logs/
 *.ipynb
 sqlite/
+__pycache__/
+*.pyc

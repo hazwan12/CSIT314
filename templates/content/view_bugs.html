@@ -1,4 +1,13 @@
 {% extends 'layout.html' %}
 {% block content %}
+{% with message = get_flashed_messages(category_filter=["success"]) %}
+{% if message %}
+  <div class="alert alert-success" role="alert">{{ message[0] }}</div>
+{% endif %}
+{% endwith %}
+<br>
+<div class="container">
+    {{ bug_cards|safe }}
+</div>
 
 {% endblock %}
